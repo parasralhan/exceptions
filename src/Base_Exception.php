@@ -11,11 +11,11 @@ class Base_Exception extends Exception {
 
   protected $_message_to_unauthorized_user;
 
-  protected $_Configurer;
+  protected static $_Configurer;
 
   public function __construct( $message ) {
 
-    $this->_Configurer = Configurer::get_instance();
+    static::$_Configurer = Configurer::get_instance();
 
     parent::__construct( $message );
 
@@ -93,7 +93,7 @@ class Base_Exception extends Exception {
   }
 
   protected static function _is_authorized(){
-    $config = $this->_Configurer->get_config();
+    $config = static::$_Configurer->get_config();
     return $config['is_admin'] || $config['env'] == 'development';
   }
 
