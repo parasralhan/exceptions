@@ -5,6 +5,8 @@ namespace Bonzer\Exceptions;
 use Exception;
 use Bonzer\Exceptions\config\Configurer;
 
+require 'functions.php';
+
 class Base_Exception extends Exception {
 
   protected $_message_to_unauthorized_user;
