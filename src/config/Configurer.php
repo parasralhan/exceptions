@@ -8,7 +8,7 @@ class Configurer{
 
   private static $_instance;
 
-  protected static $_config;
+  protected $_config;
   
   private function __construct(array $config = []){
 
